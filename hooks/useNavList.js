@@ -9,6 +9,10 @@ const useNavList = (isAuthenticated) => {
   if (isAuthenticated) {
     navList.push(...[
       {
+        name: 'Profile',
+        href: '/profile'
+      },
+      {
         name: 'Vehicles',
         href: '/vehicles'
       },

@@ -51,71 +51,71 @@ const Login = () => {
   return (
     <DefaultLayout>
       <form onSubmit={handleSubmit}>
-        <div className="flex flex-col mx-auto md:w-96 w-full">
+        <div className='flex flex-col mx-auto md:w-96 w-full'>
 
-          <h1 className="heading">Login</h1>
+          <h1 className='heading'>Login</h1>
 
-          <div className="flex flex-col mb-4">
+          <div className='flex flex-col mb-4'>
             <label
-              htmlFor="email"
-              className="required"
+              htmlFor='email'
+              className='required'
             >
               Email
             </label>
             <input
               required
-              id="email"
-              name="email"
-              type="email"
+              id='email'
+              name='email'
+              type='email'
               value={email}
               onChange={handleEmailChange}
-              className="form-input"
-              autoComplete="email"
+              className='form-input'
+              autoComplete='email'
             />
             <ErrorMessage errors={errors} field='email' />
           </div>
 
-          <div className="flex flex-col">
+          <div className='flex flex-col'>
             <label
-              htmlFor="password"
-              className="required"
+              htmlFor='password'
+              className='required'
             >
               Password
             </label>
             <input
               required
-              id="password"
-              name="password"
-              type="password"
+              id='password'
+              name='password'
+              type='password'
               value={password}
               onChange={handlePasswordChange}
-              className="form-input"
-              autoComplete="new-password"
+              className='form-input'
+              autoComplete='new-password'
             />
             <ErrorMessage errors={errors} field='password' />
           </div>
 
-          <div className="flex flex-col gap-2 mt-1">
-            <label className="flex gap-2 items-center hover:cursor-pointer" htmlFor="remember">
+          <div className='flex flex-col gap-2 mt-1'>
+            <label className='flex gap-2 items-center hover:cursor-pointer' htmlFor='remember'>
               <input
-                id="remember"
-                name="remember"
-                type="checkbox"
-                className="w-4 h-4"
+                id='remember'
+                name='remember'
+                type='checkbox'
+                className='w-4 h-4'
                 checked={isRemembered}
                 onChange={handleIsRememberedToggle}
               />
-              <span className="select-none">Remember me</span>
+              <span className='select-none'>Remember me</span>
             </label>
           </div>
 
-          <div className="border-t h-[1px] my-2"></div>
+          <div className='border-t h-[1px] my-2'></div>
 
-          <div className="flex flex-col gap-2 mb-4">
+          <div className='flex flex-col gap-2 mb-4'>
             <button
-              type="submit"
+              type='submit'
               disabled={isLoading}
-              className="btn btn-primary rounded"
+              className='btn btn-primary rounded'
             >
               {
                 isLoading && <SpinnerIcon />
@@ -125,7 +125,7 @@ const Login = () => {
           </div>
 
           <div>
-            Don&apos;t have an account?
+            <span>Don&apos;t have an account?</span>
             <Link
               to='/register'
               className='text-blue-600 ml-1'
