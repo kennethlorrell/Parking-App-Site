@@ -1,4 +1,4 @@
-const IconSpinner = () => {
+const SpinnerIcon = () => {
   return (
     <svg
       className="animate-spin h-5 w-5 text-white"
@@ -23,4 +23,4 @@ const IconSpinner = () => {
   );
 };
 
-export default IconSpinner
+export default SpinnerIcon;

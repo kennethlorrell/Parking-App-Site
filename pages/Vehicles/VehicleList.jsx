@@ -1,10 +1,10 @@
-import AuthLayout from '@/components/Layouts/AuthLayout.jsx';
+import DefaultLayout from '@/components/Layouts/DefaultLayout.jsx';
 
 const Home = () => {
   return (
-    <AuthLayout>
+    <DefaultLayout>
       List of vehicles
-    </AuthLayout>
+    </DefaultLayout>
   );
 };
 

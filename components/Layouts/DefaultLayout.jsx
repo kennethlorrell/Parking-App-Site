@@ -1,6 +1,6 @@
 import Navigation from '@/components/Navigation/Navigation.jsx';
 
-const GuestLayout = ({ children }) => {
+const DefaultLayout = ({ children }) => {
   return (
     <div className="app">
       <header className="py-6 bg-gray-100 shadow">
@@ -15,4 +15,4 @@ const GuestLayout = ({ children }) => {
   );
 };
 
-export default GuestLayout;
+export default DefaultLayout;

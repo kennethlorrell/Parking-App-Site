@@ -1,44 +1,36 @@
 import { useState } from 'react';
-import GuestLayout from '@/components/Layouts/GuestLayout.jsx';
-import { Link, useNavigate } from 'react-router-dom';
-import api from '@/utils/api.js';
+import DefaultLayout from '@/components/Layouts/DefaultLayout.jsx';
+import { Link } from 'react-router-dom';
 import ErrorMessage from '@/components/ErrorMessages/ErrorMessage.jsx';
-import Spinner from '@/components/Loaders/Spinner.jsx';
+import SpinnerIcon from '@/components/Loaders/SpinnerIcon.jsx';
+import useAuth from '@/hooks/useAuth.js';
 
 const Register = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [errors, setErrors] = useState({});
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirmation, setPasswordConfirmation] = useState('');
 
-  const navigate = useNavigate();
+  const {
+    register,
+    isLoading,
+    errors,
+    setErrors
+  } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    setIsLoading(true);
-    setErrors({});
-
-    const formData = {
+    const data = {
       name,
       email,
       password,
       password_confirmation: passwordConfirmation
     };
 
-    try {
-      await api.post('/register', formData);
+    await register(data);
 
-      navigate('/vehicles');
-    } catch (err) {
-      console.error(err);
-      setErrors(err.response.data.errors);
-    } finally {
-      clearPasswordInputs();
-      setIsLoading(false);
-    }
+    clearPasswordInputs();
   };
 
   const handleNameChange = (e) => {
@@ -61,8 +53,8 @@ const Register = () => {
   };
 
   const clearPasswordInputs = () => {
-    setPassword('')
-    setPasswordConfirmation('')
+    setPassword('');
+    setPasswordConfirmation('');
   };
 
   const removeError = (field) => {
@@ -74,7 +66,7 @@ const Register = () => {
   };
 
   return (
-    <GuestLayout>
+    <DefaultLayout>
       <form onSubmit={handleSubmit}>
         <div className="flex flex-col mx-auto md:w-96 w-full">
 
@@ -168,7 +160,7 @@ const Register = () => {
               className="btn btn-primary rounded"
             >
               {
-                isLoading && <Spinner />
+                isLoading && <SpinnerIcon />
               }
               <span>Register</span>
             </button>
@@ -185,7 +177,7 @@ const Register = () => {
           </div>
         </div>
       </form>
-    </GuestLayout>
+    </DefaultLayout>
   );
 };
 
