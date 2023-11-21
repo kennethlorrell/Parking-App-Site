@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import DefaultLayout from '@/components/Layouts/DefaultLayout.jsx';
 import { Link } from 'react-router-dom';
-import ErrorMessage from '@/components/ErrorMessages/ErrorMessage.jsx';
+import AlertError from '@/components/Alerts/AlertError.jsx';
 import SpinnerIcon from '@/components/Loaders/SpinnerIcon.jsx';
 import useAuth from '@/hooks/useAuth.js';
 
@@ -30,7 +30,7 @@ const Register = () => {
 
     await register(data);
 
-    clearPasswordInputs();
+    resetPasswordInputs();
   };
 
   const handleNameChange = (e) => {
@@ -52,7 +52,7 @@ const Register = () => {
     setPasswordConfirmation(e.target.value);
   };
 
-  const clearPasswordInputs = () => {
+  const resetPasswordInputs = () => {
     setPassword('');
     setPasswordConfirmation('');
   };
@@ -89,7 +89,7 @@ const Register = () => {
               className='form-input'
               autoComplete='name'
             />
-            <ErrorMessage errors={errors} field='name' />
+            <AlertError errors={errors} field='name' />
           </div>
 
           <div className='flex flex-col gap-2 mb-4'>
@@ -109,7 +109,7 @@ const Register = () => {
               className='form-input'
               autoComplete='email'
             />
-            <ErrorMessage errors={errors} field='email' />
+            <AlertError errors={errors} field='email' />
           </div>
 
           <div className='flex flex-col gap-2 mb-4'>
@@ -129,7 +129,7 @@ const Register = () => {
               className='form-input'
               autoComplete='new-password'
             />
-            <ErrorMessage errors={errors} field='password' />
+            <AlertError errors={errors} field='password' />
           </div>
 
           <div className='flex flex-col gap-2'>

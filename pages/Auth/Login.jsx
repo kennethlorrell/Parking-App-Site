@@ -1,5 +1,5 @@
 import DefaultLayout from '@/components/Layouts/DefaultLayout.jsx';
-import ErrorMessage from '@/components/ErrorMessages/ErrorMessage.jsx';
+import AlertError from '@/components/Alerts/AlertError.jsx';
 import SpinnerIcon from '@/components/Loaders/SpinnerIcon.jsx';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
@@ -72,7 +72,7 @@ const Login = () => {
               className='form-input'
               autoComplete='email'
             />
-            <ErrorMessage errors={errors} field='email' />
+            <AlertError errors={errors} field='email' />
           </div>
 
           <div className='flex flex-col'>
@@ -92,7 +92,7 @@ const Login = () => {
               className='form-input'
               autoComplete='new-password'
             />
-            <ErrorMessage errors={errors} field='password' />
+            <AlertError errors={errors} field='password' />
           </div>
 
           <div className='flex flex-col gap-2 mt-1'>

@@ -13,6 +13,10 @@ const useNavList = (isAuthenticated) => {
         href: '/profile'
       },
       {
+        name: 'Change password',
+        href: '/profile/change-password'
+      },
+      {
         name: 'Vehicles',
         href: '/vehicles'
       },

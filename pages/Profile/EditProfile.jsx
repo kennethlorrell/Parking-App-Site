@@ -1,5 +1,5 @@
 import useProfile from '@/hooks/useProfile.js';
-import ErrorMessage from '@/components/ErrorMessages/ErrorMessage.jsx';
+import AlertError from '@/components/Alerts/AlertError.jsx';
 import SpinnerIcon from '@/components/Loaders/SpinnerIcon.jsx';
 import DefaultLayout from '@/components/Layouts/DefaultLayout.jsx';
 
@@ -33,11 +33,7 @@ const EditProfile = () => {
           <h1 className='heading'>Edit Profile</h1>
 
           {
-            profile.status && (
-              <div className='alert alert-success mb-4' role='alert'>
-                {profile.status}
-              </div>
-            )
+            profile.status && <Notification message={profile.status} />
           }
 
           <div className='flex flex-col gap-2 mb-2'>
@@ -57,7 +53,7 @@ const EditProfile = () => {
               className='form-input'
               autoComplete='name'
             />
-            <ErrorMessage errors={profile.errors} field='name' />
+            <AlertError errors={profile.errors} field='name' />
           </div>
 
           <div className='flex flex-col gap-2 mb-2'>
@@ -77,7 +73,7 @@ const EditProfile = () => {
               className='form-input'
               autoComplete='email'
             />
-            <ErrorMessage errors={profile.errors} field='email' />
+            <AlertError errors={profile.errors} field='email' />
           </div>
 
           <div className='border-t h-[1px]'></div>
@@ -85,7 +81,7 @@ const EditProfile = () => {
           <div className='flex flex-col gap-2 mb-4'>
             <button type='submit' className='btn btn-primary' disabled={profile.isLoading}>
               {
-                profile.loading && <SpinnerIcon />
+                profile.isLoading && <SpinnerIcon />
               }
               <span>Update Profile</span>
             </button>

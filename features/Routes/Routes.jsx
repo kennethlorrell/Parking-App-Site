@@ -10,6 +10,7 @@ import VehicleList from '@/pages/Vehicles/VehicleList.jsx';
 import ActiveParkings from '@/pages/Parkings/ActiveParkings.jsx';
 import RedirectUnauthenticated from '@/features/Routes/RedirectUnauthenticated.jsx';
 import EditProfile from '@/pages/Profile/EditProfile.jsx';
+import ChangePassword from '@/pages/Profile/ChangePassword.jsx';
 
 const Routes = () => (
   <BrowserRouter>
@@ -21,6 +22,7 @@ const Routes = () => (
       </Route>
       <Route element={<RedirectUnauthenticated />}>
         <Route path='/profile' element={<EditProfile />} />
+        <Route path='/profile/change-password' element={<ChangePassword />} />
         <Route path='/vehicles' element={<VehicleList />} />
         <Route path='/parkings/active' element={<ActiveParkings />} />
       </Route>
