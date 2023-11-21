@@ -1,4 +1,4 @@
-import GuestLayout from '@/components/layouts/GuestLayout.jsx';
+import GuestLayout from '@/components/Layouts/GuestLayout.jsx';
 
 const Login = () => {
   return (

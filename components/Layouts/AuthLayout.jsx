@@ -1,4 +1,4 @@
-import Navigation from '@/components/navigation/Navigation.jsx';
+import Navigation from '@/components/Navigation/Navigation.jsx';
 
 const AuthLayout = ({ children }) => {
   return (

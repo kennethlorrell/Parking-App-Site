@@ -1,4 +1,4 @@
-import NavLinkStyled from '@/components/navigation/NavLinkStyled.jsx';
+import NavLinkStyled from '@/components/Navigation/NavLinkStyled.jsx';
 
 const Navigation = () => {
   return (
@@ -12,6 +12,9 @@ const Navigation = () => {
         </h2>
         <NavLinkStyled to='/'>
           Home
+        </NavLinkStyled>
+        <NavLinkStyled to='/vehicles'>
+          Vehicles
         </NavLinkStyled>
       </div>
       <div className="flex gap-4 items-center">
