@@ -13,6 +13,8 @@ import EditProfile from '@/pages/Profile/EditProfile.jsx';
 import ChangePassword from '@/pages/Profile/ChangePassword.jsx';
 import CreateVehicle from '@/pages/Vehicles/CreateVehicle.jsx';
 import OrderParking from '@/pages/Parkings/OrderParking.jsx';
+import ParkingHistory from '@/pages/Parkings/ParkingHistory.jsx';
+import ParkingDetails from '@/pages/Parkings/ParkingDetails.jsx';
 
 const Routes = () => (
   <BrowserRouter>
@@ -29,7 +31,9 @@ const Routes = () => (
         <Route path='/vehicles/create' element={<CreateVehicle />} />
         <Route path='/vehicles/:id/edit' element={<CreateVehicle />} />
         <Route path='/parkings/active' element={<ActiveParkings />} />
+        <Route path='/parkings/history' element={<ParkingHistory />} />
         <Route path='/parkings/start' element={<OrderParking />} />
+        <Route path='/parkings/:id' element={<ParkingDetails />} />
       </Route>
     </RouterRoutes>
   </BrowserRouter>

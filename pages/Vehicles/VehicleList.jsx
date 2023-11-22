@@ -31,7 +31,7 @@ const VehicleList = () => {
 
         <div className='border-t h-[1px] my-6'></div>
 
-        <div className="flex flex-col gap-2">
+        <div className='flex flex-col gap-2'>
           {
             vehicles.map((vehicle) => (
               <Vehicle

@@ -25,8 +25,12 @@ const useNavList = (isAuthenticated) => {
         href: '/vehicles'
       },
       {
-        name: 'Parkings',
+        name: 'Active Parkings',
         href: '/parkings/active'
+      },
+      {
+        name: 'Parking History',
+        href: '/parkings/history'
       }
     ]);
     navList.actions = [
