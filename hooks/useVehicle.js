@@ -3,11 +3,20 @@ import api from '@/utils/api.js';
 import { useNavigate } from 'react-router-dom';
 
 const useVehicle = (id = null) => {
+  const [vehicles, setVehicles] = useState([]);
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const controller = new AbortController();
+
+    getVehicles();
+
+    return () => { controller.abort(); };
+  }, []);
 
   useEffect(() => {
     if (id) {
@@ -19,17 +28,13 @@ const useVehicle = (id = null) => {
     }
   }, [id]);
 
-  const getVehicle = async (id, { signal } = {}) => {
-    setIsLoading(true);
-
+  const getVehicles = async ({ signal } = {}) => {
     try {
-      const { data: { data } } = await api.get(`/vehicles/${id}`, { signal });
+      const { data: { data } } = await api.get('/vehicles', { signal });
 
-      setData(data);
+      setVehicles(data);
     } catch (err) {
       console.error(err);
-    } finally {
-      setIsLoading(false);
     }
   };
 
@@ -44,6 +49,20 @@ const useVehicle = (id = null) => {
     } catch (err) {
       console.error(err);
       setErrors(err.response.data.errors);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const getVehicle = async (id, { signal } = {}) => {
+    setIsLoading(true);
+
+    try {
+      const { data: { data } } = await api.get(`/vehicles/${id}`, { signal });
+
+      setData(data);
+    } catch (err) {
+      console.error(err);
     } finally {
       setIsLoading(false);
     }
@@ -65,16 +84,28 @@ const useVehicle = (id = null) => {
     }
   };
 
+  const deleteVehicle = async (vehicleId) => {
+    try {
+      await api.delete(`/vehicles/${vehicleId}`);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return {
+    getVehicles,
+    createVehicle,
+    getVehicle,
+    updateVehicle,
+    deleteVehicle,
+    vehicles,
     vehicle: {
       data,
       setData,
       isLoading,
       errors,
       setErrors
-    },
-    createVehicle,
-    updateVehicle
+    }
   };
 };
 

@@ -1,6 +1,6 @@
 import CircularSpinner from '@/components/Loaders/CircularSpinner.jsx';
 
-const ButtonWithLoader = ({ isLoading, text }) => {
+const LoadingButton = ({ isLoading, text }) => {
   return (
     <button type='submit' className='btn btn-primary w-full' disabled={isLoading}>
       {
@@ -11,4 +11,4 @@ const ButtonWithLoader = ({ isLoading, text }) => {
   );
 };
 
-export default ButtonWithLoader;
+export default LoadingButton;

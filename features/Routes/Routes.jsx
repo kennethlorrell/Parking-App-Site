@@ -12,6 +12,7 @@ import RedirectUnauthenticated from '@/features/Routes/RedirectUnauthenticated.j
 import EditProfile from '@/pages/Profile/EditProfile.jsx';
 import ChangePassword from '@/pages/Profile/ChangePassword.jsx';
 import CreateVehicle from '@/pages/Vehicles/CreateVehicle.jsx';
+import OrderParking from '@/pages/Parkings/OrderParking.jsx';
 
 const Routes = () => (
   <BrowserRouter>
@@ -28,6 +29,7 @@ const Routes = () => (
         <Route path='/vehicles/create' element={<CreateVehicle />} />
         <Route path='/vehicles/:id/edit' element={<CreateVehicle />} />
         <Route path='/parkings/active' element={<ActiveParkings />} />
+        <Route path='/parkings/start' element={<OrderParking />} />
       </Route>
     </RouterRoutes>
   </BrowserRouter>

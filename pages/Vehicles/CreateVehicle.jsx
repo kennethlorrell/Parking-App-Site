@@ -1,8 +1,9 @@
 import { useNavigate, useParams } from 'react-router-dom';
 import useVehicle from '@/hooks/useVehicle.js';
 import ErrorMessage from '@/components/ErrorMessages/ErrorMessage.jsx';
-import ButtonWithLoader from '@/components/Buttons/ButtonWithLoader.jsx';
+import LoadingButton from '@/components/Buttons/LoadingButton.jsx';
 import DefaultLayout from '@/components/Layouts/DefaultLayout.jsx';
+import CancelButton from '@/components/Buttons/CancelButton.jsx';
 
 const CreateVehicle = () => {
   const { id } = useParams();
@@ -76,19 +77,15 @@ const CreateVehicle = () => {
           <div className='border-t h-[1px] my-6'></div>
 
           <div className='flex items-center gap-2'>
-            <ButtonWithLoader
+            <LoadingButton
               isLoading={vehicle.isLoading}
               text={id ? 'Update Vehicle' : 'Save Vehicle'}
             />
 
-            <button
-              type='button'
-              className='btn btn-secondary'
-              onClick={handleCancelClick}
-              disabled={vehicle.isLoading}
-            >
-              <span>Cancel</span>
-            </button>
+            <CancelButton
+              isLoading={vehicle.isLoading}
+              callback={handleCancelClick}
+            />
           </div>
         </div>
       </form>

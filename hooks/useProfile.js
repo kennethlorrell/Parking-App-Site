@@ -12,7 +12,7 @@ const useProfile = () => {
 
     getProfile({ signal: controller.signal });
 
-    return () => controller.abort();
+    return () => { controller.abort(); };
   }, []);
 
   const getProfile = async ({ signal = {} }) => {

@@ -1,7 +1,7 @@
 import useProfile from '@/hooks/useProfile.js';
 import ErrorMessage from '@/components/ErrorMessages/ErrorMessage.jsx';
 import DefaultLayout from '@/components/Layouts/DefaultLayout.jsx';
-import ButtonWithLoader from '@/components/Buttons/ButtonWithLoader.jsx';
+import LoadingButton from '@/components/Buttons/LoadingButton.jsx';
 import AlertSuccess from '@/components/Alerts/AlertSuccess.jsx';
 
 const EditProfile = () => {
@@ -80,7 +80,7 @@ const EditProfile = () => {
           <div className='border-t h-[1px]'></div>
 
           <div className='flex flex-col gap-2 mb-4'>
-            <ButtonWithLoader
+            <LoadingButton
               isLoading={profile.isLoading}
               text='Update Profile'
             />
