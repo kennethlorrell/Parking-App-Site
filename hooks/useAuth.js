@@ -57,7 +57,7 @@ const useAuth = () => {
 
   const logout = async (force = false) => {
     if (!force) {
-      await axios.post('/logout');
+      await api.post('/logout');
     }
 
     removeAccessToken();

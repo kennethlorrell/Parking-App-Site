@@ -1,6 +1,6 @@
 import DefaultLayout from '@/components/Layouts/DefaultLayout.jsx';
-import AlertError from '@/components/Alerts/AlertError.jsx';
-import SpinnerIcon from '@/components/Loaders/SpinnerIcon.jsx';
+import ErrorMessage from '@/components/ErrorMessages/ErrorMessage.jsx';
+import CircularSpinner from '@/components/Loaders/CircularSpinner.jsx';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import useAuth from '@/hooks/useAuth.js';
@@ -8,7 +8,7 @@ import useAuth from '@/hooks/useAuth.js';
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [isRemembered, setIsRemembered] = useState(false);
+  const [remember, setRemember] = useState(false);
 
   const {
     login,
@@ -22,7 +22,8 @@ const Login = () => {
 
     const data = {
       email,
-      password
+      password,
+      remember
     };
 
     await login(data);
@@ -38,7 +39,7 @@ const Login = () => {
     removeError('password');
   };
 
-  const handleIsRememberedToggle = () => setIsRemembered((prevState) => !prevState);
+  const handleRememberToggle = () => setRemember((prevState) => !prevState);
 
   const removeError = (field) => {
     setErrors((prevState) => {
@@ -72,7 +73,7 @@ const Login = () => {
               className='form-input'
               autoComplete='email'
             />
-            <AlertError errors={errors} field='email' />
+            <ErrorMessage errors={errors} field='email' />
           </div>
 
           <div className='flex flex-col'>
@@ -92,7 +93,7 @@ const Login = () => {
               className='form-input'
               autoComplete='new-password'
             />
-            <AlertError errors={errors} field='password' />
+            <ErrorMessage errors={errors} field='password' />
           </div>
 
           <div className='flex flex-col gap-2 mt-1'>
@@ -102,8 +103,8 @@ const Login = () => {
                 name='remember'
                 type='checkbox'
                 className='w-4 h-4'
-                checked={isRemembered}
-                onChange={handleIsRememberedToggle}
+                checked={remember}
+                onChange={handleRememberToggle}
               />
               <span className='select-none'>Remember me</span>
             </label>
@@ -118,7 +119,7 @@ const Login = () => {
               className='btn btn-primary rounded'
             >
               {
-                isLoading && <SpinnerIcon />
+                isLoading && <CircularSpinner />
               }
               <span>Login</span>
             </button>

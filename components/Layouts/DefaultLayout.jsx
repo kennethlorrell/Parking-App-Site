@@ -7,7 +7,7 @@ const DefaultLayout = ({ children }) => {
         <Navigation />
       </header>
       <div className='container md:px-2 px-4 pt-8 md:pt-16 mx-auto'>
-        { children }
+        {children}
       </div>
     </div>
   );

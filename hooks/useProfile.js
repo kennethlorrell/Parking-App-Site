@@ -4,7 +4,7 @@ import api from '@/utils/api.js';
 const useProfile = () => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState(null);
+  const [message, setMessage] = useState('');
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -32,12 +32,12 @@ const useProfile = () => {
   const updateProfile = async (profileData) => {
     setIsLoading(true);
     setErrors({});
-    setStatus(null);
+    setMessage('');
 
     try {
       await api.put('/profile', profileData);
 
-      setStatus('Profile has been updated!');
+      setMessage('Profile has been updated!');
     } catch (err) {
       console.error(err);
       setErrors(err.response.data.errors);
@@ -52,7 +52,7 @@ const useProfile = () => {
       setData,
       errors,
       setErrors,
-      status,
+      message,
       isLoading
     },
     updateProfile

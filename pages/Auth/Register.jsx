@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import DefaultLayout from '@/components/Layouts/DefaultLayout.jsx';
 import { Link } from 'react-router-dom';
-import AlertError from '@/components/Alerts/AlertError.jsx';
-import SpinnerIcon from '@/components/Loaders/SpinnerIcon.jsx';
+import ErrorMessage from '@/components/ErrorMessages/ErrorMessage.jsx';
+import CircularSpinner from '@/components/Loaders/CircularSpinner.jsx';
 import useAuth from '@/hooks/useAuth.js';
 
 const Register = () => {
@@ -89,7 +89,7 @@ const Register = () => {
               className='form-input'
               autoComplete='name'
             />
-            <AlertError errors={errors} field='name' />
+            <ErrorMessage errors={errors} field='name' />
           </div>
 
           <div className='flex flex-col gap-2 mb-4'>
@@ -109,7 +109,7 @@ const Register = () => {
               className='form-input'
               autoComplete='email'
             />
-            <AlertError errors={errors} field='email' />
+            <ErrorMessage errors={errors} field='email' />
           </div>
 
           <div className='flex flex-col gap-2 mb-4'>
@@ -129,7 +129,7 @@ const Register = () => {
               className='form-input'
               autoComplete='new-password'
             />
-            <AlertError errors={errors} field='password' />
+            <ErrorMessage errors={errors} field='password' />
           </div>
 
           <div className='flex flex-col gap-2'>
@@ -160,7 +160,7 @@ const Register = () => {
               className='btn btn-primary rounded'
             >
               {
-                isLoading && <SpinnerIcon />
+                isLoading && <CircularSpinner />
               }
               <span>Register</span>
             </button>

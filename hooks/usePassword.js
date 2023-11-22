@@ -4,17 +4,17 @@ import api from '@/utils/api.js';
 const usePassword = () => {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState(null);
+  const [message, setMessage] = useState('');
 
   const updatePassword = async (data) => {
     setIsLoading(true);
     setErrors({});
-    setStatus(null);
+    setMessage('');
 
     try {
       await api.put('/password', data);
 
-      setStatus('Password has been updated!');
+      setMessage('Password has been updated!');
     } catch (err) {
       console.error(err);
       setErrors(err.response.data.errors);
@@ -27,7 +27,7 @@ const usePassword = () => {
     updatePassword,
     errors,
     setErrors,
-    status,
+    message,
     isLoading
   };
 };

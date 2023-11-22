@@ -1,21 +1,25 @@
 const useNavList = (isAuthenticated) => {
-  const navList = [
-    {
-      name: 'Home',
-      href: '/'
-    }
-  ];
+  const navList = {
+    links: [
+      {
+        name: 'Home',
+        href: '/'
+      }
+    ],
+    actions: [
+      {
+        name: 'Login',
+        href: '/login'
+      },
+      {
+        name: 'Register',
+        href: '/register'
+      }
+    ]
+  };
 
   if (isAuthenticated) {
-    navList.push(...[
-      {
-        name: 'Profile',
-        href: '/profile'
-      },
-      {
-        name: 'Change password',
-        href: '/profile/change-password'
-      },
+    navList.links.push(...[
       {
         name: 'Vehicles',
         href: '/vehicles'
@@ -25,6 +29,16 @@ const useNavList = (isAuthenticated) => {
         href: '/parkings/active'
       }
     ]);
+    navList.actions = [
+      {
+        name: 'Profile',
+        href: '/profile'
+      },
+      {
+        name: 'Change password',
+        href: '/profile/change-password'
+      }
+    ];
   }
 
   return navList;

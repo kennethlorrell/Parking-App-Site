@@ -4,10 +4,10 @@ const NavLinkStyled = ({ to, children }) => {
   return (
     <NavLink
       end
-      to={ to }
+      to={to}
       className={`${({ isActive }) => isActive ? 'underline' : ''} text-blue-600`}
     >
-      { children }
+      {children}
     </NavLink>
   );
 };

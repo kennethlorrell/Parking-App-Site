@@ -11,6 +11,7 @@ import ActiveParkings from '@/pages/Parkings/ActiveParkings.jsx';
 import RedirectUnauthenticated from '@/features/Routes/RedirectUnauthenticated.jsx';
 import EditProfile from '@/pages/Profile/EditProfile.jsx';
 import ChangePassword from '@/pages/Profile/ChangePassword.jsx';
+import CreateVehicle from '@/pages/Vehicles/CreateVehicle.jsx';
 
 const Routes = () => (
   <BrowserRouter>
@@ -24,6 +25,8 @@ const Routes = () => (
         <Route path='/profile' element={<EditProfile />} />
         <Route path='/profile/change-password' element={<ChangePassword />} />
         <Route path='/vehicles' element={<VehicleList />} />
+        <Route path='/vehicles/create' element={<CreateVehicle />} />
+        <Route path='/vehicles/:id/edit' element={<CreateVehicle />} />
         <Route path='/parkings/active' element={<ActiveParkings />} />
       </Route>
     </RouterRoutes>

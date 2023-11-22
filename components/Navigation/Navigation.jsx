@@ -31,7 +31,7 @@ const Navigation = () => {
             </span>
           </h2>
           {
-            navList.map(({ name, href }) => (
+            navList.links.map(({ name, href }) => (
               <NavLinkStyled to={href} key={name}>
                 {name}
               </NavLinkStyled>
@@ -40,22 +40,18 @@ const Navigation = () => {
         </div>
         <div className='flex gap-4 items-center'>
           {
-            isAuthenticated
-              ? (
-                <button onClick={logout} type='button' className='text-blue-600'>
-                  Logout
-                </button>
-              )
-              : (
-                <>
-                  <NavLinkStyled to='/login'>
-                    Login
-                  </NavLinkStyled>
-                  <NavLinkStyled to='/register'>
-                    Register
-                  </NavLinkStyled>
-                </>
-              )
+            navList.actions.map(({ name, href }) => (
+              <NavLinkStyled to={href} key={name}>
+                {name}
+              </NavLinkStyled>
+            ))
+          }
+          {
+            isAuthenticated && (
+              <button onClick={logout} type='button' className='text-blue-600'>
+                Logout
+              </button>
+            )
           }
         </div>
       </nav>

@@ -1,7 +1,8 @@
 import useProfile from '@/hooks/useProfile.js';
-import AlertError from '@/components/Alerts/AlertError.jsx';
-import SpinnerIcon from '@/components/Loaders/SpinnerIcon.jsx';
+import ErrorMessage from '@/components/ErrorMessages/ErrorMessage.jsx';
 import DefaultLayout from '@/components/Layouts/DefaultLayout.jsx';
+import ButtonWithLoader from '@/components/Buttons/ButtonWithLoader.jsx';
+import AlertSuccess from '@/components/Alerts/AlertSuccess.jsx';
 
 const EditProfile = () => {
   const [profile, updateProfile] = useProfile();
@@ -33,7 +34,7 @@ const EditProfile = () => {
           <h1 className='heading'>Edit Profile</h1>
 
           {
-            profile.status && <Notification message={profile.status} />
+            profile.message && <AlertSuccess message={profile.message} />
           }
 
           <div className='flex flex-col gap-2 mb-2'>
@@ -53,7 +54,7 @@ const EditProfile = () => {
               className='form-input'
               autoComplete='name'
             />
-            <AlertError errors={profile.errors} field='name' />
+            <ErrorMessage errors={profile.errors} field='name' />
           </div>
 
           <div className='flex flex-col gap-2 mb-2'>
@@ -73,18 +74,16 @@ const EditProfile = () => {
               className='form-input'
               autoComplete='email'
             />
-            <AlertError errors={profile.errors} field='email' />
+            <ErrorMessage errors={profile.errors} field='email' />
           </div>
 
           <div className='border-t h-[1px]'></div>
 
           <div className='flex flex-col gap-2 mb-4'>
-            <button type='submit' className='btn btn-primary' disabled={profile.isLoading}>
-              {
-                profile.isLoading && <SpinnerIcon />
-              }
-              <span>Update Profile</span>
-            </button>
+            <ButtonWithLoader
+              isLoading={profile.isLoading}
+              text='Update Profile'
+            />
           </div>
 
         </div>

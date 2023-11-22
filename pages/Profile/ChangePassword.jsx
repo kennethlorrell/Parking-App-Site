@@ -1,15 +1,16 @@
 import { useState } from 'react';
 import usePassword from '@/hooks/usePassword.js';
 import DefaultLayout from '@/components/Layouts/DefaultLayout.jsx';
-import AlertError from '@/components/Alerts/AlertError.jsx';
-import SpinnerIcon from '@/components/Loaders/SpinnerIcon.jsx';
+import ErrorMessage from '@/components/ErrorMessages/ErrorMessage.jsx';
+import CircularSpinner from '@/components/Loaders/CircularSpinner.jsx';
+import AlertSuccess from '@/components/Alerts/AlertSuccess.jsx';
 
 const ChangePassword = () => {
   const [currentPassword, setCurrentPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
   const [newPasswordConfirmation, setNewPasswordConfirmation] = useState('');
 
-  const { updatePassword, isLoading, status, errors, setErrors } = usePassword();
+  const { updatePassword, isLoading, message, errors, setErrors } = usePassword();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -18,7 +19,7 @@ const ChangePassword = () => {
       current_password: currentPassword,
       new_password: newPassword,
       new_password_confirmation: newPasswordConfirmation
-    })
+    });
 
     resetInputs();
   };
@@ -54,13 +55,13 @@ const ChangePassword = () => {
 
   return (
     <DefaultLayout>
-      <form onSubmit={handleSubmit} noValidate>
+      <form onSubmit={handleSubmit}>
         <div className='flex flex-col mx-auto md:w-96 w-full'>
 
           <h1 className='heading'>Change Password</h1>
 
           {
-            status && <Notification message={status} />
+            message && <AlertSuccess message={message} />
           }
 
           <div className='flex flex-col gap-2'>
@@ -79,12 +80,12 @@ const ChangePassword = () => {
               className='form-input'
               autoComplete='current-password'
             />
-            <AlertError errors={errors} field='current_password' />
+            <ErrorMessage errors={errors} field='current_password' />
           </div>
 
           <div className='flex flex-col gap-2'>
             <label
-              htmlFor='password'
+              htmlFor='new_password'
               className='required'
             >
               New password
@@ -98,12 +99,12 @@ const ChangePassword = () => {
               className='form-input'
               autoComplete='new-password'
             />
-            <AlertError errors={errors} field='new_password' />
+            <ErrorMessage errors={errors} field='new_password' />
           </div>
 
           <div className='flex flex-col gap-2'>
             <label
-              htmlFor='password_confirmation'
+              htmlFor='new_password_confirmation'
               className='required'
             >
               Confirm new password
@@ -124,7 +125,7 @@ const ChangePassword = () => {
           <div className='flex flex-col gap-2 mb-4'>
             <button type='submit' className='btn btn-primary' disabled={isLoading}>
               {
-                isLoading && <SpinnerIcon />
+                isLoading && <CircularSpinner />
               }
               <span>Update Password</span>
             </button>
