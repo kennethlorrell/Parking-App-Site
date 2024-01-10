@@ -31,7 +31,7 @@ const EditProfile = () => {
     <DefaultLayout>
       <form onSubmit={handleSubmit}>
         <div className='flex flex-col mx-auto md:w-96 w-full'>
-          <h1 className='heading'>Edit Profile</h1>
+          <h1 className='heading'>Редагувати профіль</h1>
 
           {
             profile.message && <AlertSuccess message={profile.message} />
@@ -42,7 +42,7 @@ const EditProfile = () => {
               htmlFor='name'
               className='required'
             >
-              Name
+              Ім&apos;я
             </label>
             <input
               required
@@ -82,7 +82,7 @@ const EditProfile = () => {
           <div className='flex flex-col gap-2 mb-4'>
             <LoadingButton
               isLoading={profile.isLoading}
-              text='Update Profile'
+              text='Оновити деталі профілю'
             />
           </div>
 

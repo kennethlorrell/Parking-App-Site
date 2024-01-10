@@ -49,14 +49,14 @@ const OrderParking = () => {
       <form onSubmit={ handleSubmit } noValidate>
         <div className='flex flex-col mx-auto md:w-96 w-full'>
 
-          <h1 className='heading'>Order Parking</h1>
+          <h1 className='heading'>Замовлення паркування</h1>
 
           <div className='flex flex-col gap-2 mb-4'>
             <label
               htmlFor='vehicle_id'
               className='required'
             >
-              Vehicle
+              Транспортний засіб
             </label>
             <select
               id='vehicle_id'
@@ -80,7 +80,7 @@ const OrderParking = () => {
               htmlFor='zone_id'
               className='required'
             >
-              Zone
+              Зона
             </label>
             <select
               name='zone_id'
@@ -109,7 +109,7 @@ const OrderParking = () => {
           <div className='flex items-center gap-2'>
             <LoadingButton
               isLoading={isLoading}
-              text='Start Parking'
+              text='Почати паркування'
             />
 
             <CancelButton

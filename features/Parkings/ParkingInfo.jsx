@@ -3,10 +3,13 @@ import { formatTotalParkingPrice } from '@/utils/parking.js';
 import { formatZoneInfo } from '@/utils/zones.js';
 
 const ParkingInfo = ({ parking }) => {
+  console.log(parking);
   const {
     id,
-    plate_number: plateNumber,
-    description,
+    vehicle: {
+      plate_number: plateNumber,
+      description
+    },
     zone,
     start_time: startTime,
     stop_time: stopTime,
@@ -15,46 +18,50 @@ const ParkingInfo = ({ parking }) => {
 
   return (
     <>
-      <div className='border p-2 font-mono'>
-        <div className='font-bold uppercase mb-4'>
-          Parking order #{id}
+      <div className="border p-2 font-mono">
+        <div className="font-bold uppercase mb-4">
+          Квитанція парковки #{id}
         </div>
 
-        <div className='font-bold uppercase'>License plate</div>
-        <div className='plate text-2xl'>
+        <div className="font-bold uppercase mt-1">Номерний знак:</div>
+        <div className="uppercase">
           {plateNumber}
         </div>
 
-        <div className='font-bold uppercase'>Description</div>
+        <div className="font-bold uppercase mt-1">Опис:</div>
         <div>{description}</div>
 
-        <div className='font-bold uppercase'>Zone</div>
+        <div className="font-bold uppercase mt-1">Зона:</div>
         <div>{zone.name}</div>
 
-        <div className='font-bold uppercase'>price</div>
+        <div className="font-bold uppercase mt-1">Вартість:</div>
         <div>
           {formatZoneInfo(zone)}
         </div>
 
-        <div className='font-bold uppercase'>From</div>
-        <div>{startTime}</div>
+        <div className="font-bold uppercase mt-1">Дата початку:</div>
+        <div>
+          {startTime}
+        </div>
 
-        <div className='font-bold uppercase'>To</div>
-        <div>{stopTime}</div>
+        <div className="font-bold uppercase mt-1">Дата кінця:</div>
+        <div>
+          {stopTime}
+        </div>
 
-        <div className='font-bold uppercase'>Total</div>
-        <div className='text-xl'>
-          {formatTotalParkingPrice(totalPrice)} &euro;
+        <div className="font-bold uppercase mt-1">Підсумок</div>
+        <div className="text-xl">
+          {formatTotalParkingPrice(totalPrice)} &#8372;
         </div>
       </div>
 
-      <div className='border-t h-[1px] my-6'></div>
+      <div className="border-t h-[1px] my-6"></div>
 
       <Link
-        to={'/parking/history'}
+        to={'/parkings/history'}
         className='btn btn-secondary uppercase'
       >
-        Return
+        Повернутись
       </Link>
     </>
   );

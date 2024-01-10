@@ -5,5 +5,5 @@ export const formatZoneInfo = (zone) => {
 const formatHourlyRate = (rate) => {
   const formattedRate = (rate / 100).toFixed(2);
 
-  return `${formattedRate} \u20AC/hour`;
+  return `${formattedRate} \u20B4/година`;
 };

@@ -70,14 +70,14 @@ const Register = () => {
       <form onSubmit={handleSubmit}>
         <div className='flex flex-col mx-auto md:w-96 w-full'>
 
-          <h1 className='heading'>Register</h1>
+          <h1 className='heading'>Реєстрація</h1>
 
           <div className='flex flex-col gap-2 mb-4'>
             <label
               htmlFor='name'
               className='required'
             >
-              Name
+              Ім&apos;я
             </label>
             <input
               required
@@ -117,7 +117,7 @@ const Register = () => {
               htmlFor='password'
               className='required'
             >
-              Password
+              Пароль
             </label>
             <input
               required
@@ -137,7 +137,7 @@ const Register = () => {
               htmlFor='password_confirmation'
               className='required'
             >
-              Confirm Password
+              Підтвердження паролю
             </label>
             <input
               required
@@ -162,17 +162,17 @@ const Register = () => {
               {
                 isLoading && <CircularSpinner />
               }
-              <span>Register</span>
+              <span>Зареєструватись</span>
             </button>
           </div>
 
           <div className='mt-4'>
-            <span>Already registered?</span>
+            <span>Вже зареєстровані?</span>
             <Link
               to='/login'
               className='text-blue-600 ml-1'
             >
-              Log In
+              Увійти
             </Link>
           </div>
         </div>

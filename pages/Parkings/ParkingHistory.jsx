@@ -28,7 +28,7 @@ const ParkingHistory = () => {
     <DefaultLayout>
       <div className='flex flex-col mx-auto md:w-96 w-full'>
 
-        <h1 className='heading'>Parking History</h1>
+        <h1 className='heading'>Історія паркувань</h1>
 
         <div className='flex flex-col gap-1'>
           {

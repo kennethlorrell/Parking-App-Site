@@ -41,14 +41,14 @@ const CreateVehicle = () => {
       <form onSubmit={ handleSubmit }>
         <div className='flex flex-col mx-auto md:w-96 w-full'>
 
-          <h1 className='heading'>{id ? `Update Vehicle #${id}` : 'Add Vehicle'}</h1>
+          <h1 className='heading'>{id ? `Редагувати транспортий засіб ${vehicle.data.description ?? ''}` : 'Додати транспортий засіб'}</h1>
 
           <div className='flex flex-col gap-2 mb-4'>
             <label
               htmlFor='plate_number'
               className='required'
             >
-              License Plate
+              Номерний знак
             </label>
             <input
               id='plate_number'
@@ -62,7 +62,7 @@ const CreateVehicle = () => {
           </div>
 
           <div className='flex flex-col gap-2'>
-            <label htmlFor='description'>Description</label>
+            <label htmlFor='description'>Опис</label>
             <input
               id='description'
               name='description'
@@ -79,7 +79,7 @@ const CreateVehicle = () => {
           <div className='flex items-center gap-2'>
             <LoadingButton
               isLoading={vehicle.isLoading}
-              text={id ? 'Update Vehicle' : 'Save Vehicle'}
+              text={id ? 'Оновити транспортний засіб' : 'Зберегти транспортний засіб'}
             />
 
             <CancelButton

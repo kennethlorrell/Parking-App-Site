@@ -58,7 +58,7 @@ const ChangePassword = () => {
       <form onSubmit={handleSubmit}>
         <div className='flex flex-col mx-auto md:w-96 w-full'>
 
-          <h1 className='heading'>Change Password</h1>
+          <h1 className='heading'>Змінити пароль</h1>
 
           {
             message && <AlertSuccess message={message} />
@@ -69,7 +69,7 @@ const ChangePassword = () => {
               htmlFor='current_password'
               className='required'
             >
-              Current password
+              Поточний пароль
             </label>
             <input
               id='current_password'
@@ -88,7 +88,7 @@ const ChangePassword = () => {
               htmlFor='new_password'
               className='required'
             >
-              New password
+              Новий пароль
             </label>
             <input
               id='new_password'
@@ -107,7 +107,7 @@ const ChangePassword = () => {
               htmlFor='new_password_confirmation'
               className='required'
             >
-              Confirm new password
+              Підтвердження нового паролю
             </label>
             <input
               id='new_password_confirmation'
@@ -127,7 +127,7 @@ const ChangePassword = () => {
               {
                 isLoading && <CircularSpinner />
               }
-              <span>Update Password</span>
+              <span>Змінити пароль</span>
             </button>
           </div>
         </div>

@@ -54,7 +54,7 @@ const Login = () => {
       <form onSubmit={handleSubmit}>
         <div className='flex flex-col mx-auto md:w-96 w-full'>
 
-          <h1 className='heading'>Login</h1>
+          <h1 className='heading'>Увійти</h1>
 
           <div className='flex flex-col mb-4'>
             <label
@@ -81,7 +81,7 @@ const Login = () => {
               htmlFor='password'
               className='required'
             >
-              Password
+              Пароль
             </label>
             <input
               required
@@ -106,7 +106,7 @@ const Login = () => {
                 checked={remember}
                 onChange={handleRememberToggle}
               />
-              <span className='select-none'>Remember me</span>
+              <span className='select-none'>Запам'ятати мене</span>
             </label>
           </div>
 
@@ -121,17 +121,17 @@ const Login = () => {
               {
                 isLoading && <CircularSpinner />
               }
-              <span>Login</span>
+              <span>Увійти</span>
             </button>
           </div>
 
           <div>
-            <span>Don&apos;t have an account?</span>
+            <span>Немає облікового запису?</span>
             <Link
               to='/register'
               className='text-blue-600 ml-1'
             >
-              Create an account
+              Створити аккаунт
             </Link>
           </div>
         </div>

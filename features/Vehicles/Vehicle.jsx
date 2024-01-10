@@ -16,7 +16,7 @@ const Vehicle = ({ vehicle, handleVehicleDelete }) => {
           to={`/vehicles/${vehicle.id}/edit`}
           className="btn btn-secondary text-sm"
         >
-          Edit
+          Редагувати
         </Link>
         <button
           value={vehicle.id}

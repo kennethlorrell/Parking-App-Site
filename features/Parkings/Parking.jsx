@@ -22,14 +22,12 @@ const Parking = (props) => {
       </div>
 
       <div>
-        <div className='font-bold uppercase'>From</div>
-        <span className='font-mono'>{parking.start_time}</span>
+        <div className="font-bold uppercase">З <span className="font-mono">{parking.start_time}</span></div>
       </div>
       {
         isDetailed && (
           <div>
-            <div className='font-bold uppercase'>To</div>
-            <span className='font-mono'>{parking.stop_time}</span>
+            <div className="font-bold uppercase">До <span className="font-mono">{parking.stop_time}</span></div>
           </div>
         )
       }
@@ -38,7 +36,7 @@ const Parking = (props) => {
         <span className={`text-2xl font-bold ${isDetailed ? 'ml-auto' : 'text-blue-600'}`}>
           {formatTotalParkingPrice(parking.total_price)}
         </span>
-        <span className='pt-0.5'>&nbsp;&euro;</span>
+        <span className='pt-0.5'>&nbsp;&#8372;</span>
       </div>
 
       {
@@ -49,7 +47,7 @@ const Parking = (props) => {
               type='button'
               className='btn btn-secondary uppercase'
             >
-              View details
+              Деталі
             </Link>
           ) : (
             <button
@@ -57,7 +55,7 @@ const Parking = (props) => {
               className='btn btn-danger uppercase ml-auto'
               onClick={() => stopParking(parking.id)}
             >
-              Stop
+              Зупинити
             </button>
           )
       }

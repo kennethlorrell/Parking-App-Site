@@ -22,12 +22,17 @@ const Navigation = () => {
     <div className='container md:px-2 px-4 mx-auto'>
       <nav className='flex gap-4 justify-between'>
         <div className='flex gap-4 items-center'>
-          <h2 className='text-xl font-bold'>
-            <span className='inline-flex items-center justify-center bg-blue-600 w-6 h-6 text-center text-white rounded mr-1'>
-            P
+          <h2 className="text-xl font-bold rounded">
+            <span
+              className="inline-flex items-center justify-center bg-blue-600 w-6 h-6 text-center text-white">
+            S
+            </span>
+            <span
+              className="inline-flex items-center justify-center bg-red-600 w-6 h-6 text-center text-white mr-1">
+            S
             </span>
             <span>
-              Parking App
+              SwiftSpot
             </span>
           </h2>
           {
@@ -49,7 +54,7 @@ const Navigation = () => {
           {
             isAuthenticated && (
               <button onClick={logout} type='button' className='text-blue-600'>
-                Logout
+                Вийти
               </button>
             )
           }

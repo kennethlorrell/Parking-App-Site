@@ -30,7 +30,7 @@ const ParkingDetails = () => {
   return (
     <DefaultLayout>
       <div className='flex flex-col mx-auto md:w-96 w-full'>
-        <h1 className='heading'>Parking order details</h1>
+        <h1 className='heading'>Подробиці паркування</h1>
         {
           parking && <ParkingInfo parking={parking} />
         }

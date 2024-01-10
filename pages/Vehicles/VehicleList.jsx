@@ -11,7 +11,7 @@ const VehicleList = () => {
 
     if (vehicleId) {
       try {
-        await deleteVehicle();
+        await deleteVehicle(vehicleId);
         await getVehicles();
       } catch (err) {
         console.log(err);
@@ -23,10 +23,10 @@ const VehicleList = () => {
     <DefaultLayout>
       <div className='flex flex-col mx-auto md:w-96 w-full'>
 
-        <h1 className='heading'>My Vehicles</h1>
+        <h1 className='heading'>Мої транспортні засоби</h1>
 
         <Link to='/vehicles/create' className='btn btn-primary'>
-          Add Vehicle
+          Додати транспортний засіб
         </Link>
 
         <div className='border-t h-[1px] my-6'></div>

@@ -5,7 +5,7 @@ const CancelButton = ({ isLoading, callback }) => (
     disabled={isLoading}
     onClick={callback}
   >
-    <span>Cancel</span>
+    <span>Назад</span>
   </button>
 );
 

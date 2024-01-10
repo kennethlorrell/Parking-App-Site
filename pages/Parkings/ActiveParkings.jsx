@@ -39,13 +39,13 @@ const ActiveParkings = () => {
     <DefaultLayout>
       <div className='flex flex-col mx-auto md:w-96 w-full'>
 
-        <h1 className='heading'>Active Parkings</h1>
+        <h1 className='heading'>Активні паркування</h1>
 
         <Link
           to='/parkings/start'
           className='btn btn-primary'
         >
-          Order Parking
+          Замовити паркування
         </Link>
 
         <div className='border-t h-[1px] my-6'></div>

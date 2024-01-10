@@ -2,17 +2,17 @@ const useNavList = (isAuthenticated) => {
   const navList = {
     links: [
       {
-        name: 'Home',
+        name: 'Головна',
         href: '/'
       }
     ],
     actions: [
       {
-        name: 'Login',
+        name: 'Увійти',
         href: '/login'
       },
       {
-        name: 'Register',
+        name: 'Реєстрація',
         href: '/register'
       }
     ]
@@ -21,25 +21,25 @@ const useNavList = (isAuthenticated) => {
   if (isAuthenticated) {
     navList.links.push(...[
       {
-        name: 'Vehicles',
+        name: 'Транспортні засоби',
         href: '/vehicles'
       },
       {
-        name: 'Active Parkings',
+        name: 'Активні паркування',
         href: '/parkings/active'
       },
       {
-        name: 'Parking History',
+        name: 'Історія паркувань',
         href: '/parkings/history'
       }
     ]);
     navList.actions = [
       {
-        name: 'Profile',
+        name: 'Мій профіль',
         href: '/profile'
       },
       {
-        name: 'Change password',
+        name: 'Змінити пароль',
         href: '/profile/change-password'
       }
     ];
