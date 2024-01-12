@@ -1,11 +1,6 @@
 const useNavList = (isAuthenticated) => {
   const navList = {
-    links: [
-      {
-        name: 'Головна',
-        href: '/'
-      }
-    ],
+    links: [],
     actions: [
       {
         name: 'Увійти',
